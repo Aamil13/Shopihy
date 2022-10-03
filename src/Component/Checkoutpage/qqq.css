@@ -1,0 +1,30 @@
+.qqq{
+    width: 120px;
+    padding: 12px;
+    border-radius: 30px;
+    border: 1px solid lightgray;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.qqq button{
+    color: lightgray;
+    border: none;
+    font-size: 30px;
+    background: none;
+}
+
+.cc{
+/* border: 2px solid lightgray; */
+width:300px;
+height: 270px;
+}
+
+.cc button{
+    border-radius: 99px;
+    height: 45px;
+    width: 250px;
+    border: none;
+}
+

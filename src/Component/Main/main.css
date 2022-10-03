@@ -1,0 +1,10 @@
+.quantity{
+    background-color: lightgray;
+    border-color: aliceblue;
+    width: 60px;
+}
+
+.cart{
+    background-color: dimgray;
+    border: none;
+}
