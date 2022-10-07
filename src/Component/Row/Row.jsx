@@ -28,7 +28,7 @@ const Row = ({item}) => {
               setQty(Number(qty) + 1);
             
               setCartItem([...cartitem, itemtopush])
-                window.alert('+1')}
+                window.alert('Quantity Increased')}
         }else{alert("Please check the box")}
       }
       
