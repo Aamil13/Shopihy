@@ -5,12 +5,16 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 
-const CRow = ({item, handleDelete}) => {
+const CRow = ({item, handleDelete, res}) => {
 
-    const {cartitem, setTotalp, setCartItem} = useContext(Context);
+    const { setTotalp, setCartItem} = useContext(Context);
 
     const [qty , setQty] = useState(item?.qty)
+    
     const singleItem = item?.item;
+    // console.log(singleItem);
+   
+   
     
    const handleqty = (val)=>{
     if(val === "dec" ){
@@ -18,13 +22,13 @@ const CRow = ({item, handleDelete}) => {
             let tempQty = qty - 1;
             setQty(Number(qty) - 1);
             item.qty = tempQty;
-           setCartItem([...cartitem])
+           setCartItem([...res])
         }
     }else{
         let tempQ2 = qty + 1;
         setQty(Number(qty) + 1);
         item.qty = tempQ2;
-        setCartItem([...cartitem])
+        setCartItem([...res])
     }
 
     }
@@ -33,17 +37,19 @@ const CRow = ({item, handleDelete}) => {
 
     const totalprice = () =>{
         let p = 0
-        cartitem.map((itm)=>(
+        res.map((itm)=>(
             
            p += itm.item.price * Number(itm.qty)
+           
         ))
         setTotalp(p)
     }
     
 
     useEffect(() => {  
-        totalprice();       
-}, [cartitem])
+        totalprice();    
+        
+}, [res,qty])
 
   return (
     <>

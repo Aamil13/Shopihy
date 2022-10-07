@@ -4,13 +4,14 @@ import Context from "../../DataContext"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
-import { Alert } from '@mui/material';
+
 
 const Row = ({item}) => {
     
-     const {cartitem , setCartItem} = useContext(Context);
+     const {cartitem , setCartItem, alreadyad, setAlreadyad} = useContext(Context);
     const [qty , setQty] = useState(1);
     const [check , setCheck] = useState(false);
+    
 
     const handleadditem = () =>{
         const itemtopush = {
@@ -19,11 +20,18 @@ const Row = ({item}) => {
         }
         if(check == true){
 
-            setCartItem([...cartitem, itemtopush])
+            if(!alreadyad){
+              setCartItem([...cartitem, itemtopush])
             window.alert('Item Added to Cart Successfully')
+            setAlreadyad(true)
+            }else{
+              setQty(Number(qty) + 1);
+            
+              setCartItem([...cartitem, itemtopush])
+                window.alert('+1')}
         }else{alert("Please check the box")}
       }
-
+      
       const handleqty = (e) =>{
         if(e.target.value >= 1 ){
             setQty(e.target.value);

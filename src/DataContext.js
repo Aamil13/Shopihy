@@ -7,6 +7,7 @@ export  const ContextProvider =({children}) => {
         const [cartitem , setCartItem] = useState([]);
         const [totalp , setTotalp] = useState(0);
         const [updateData, setUpdateData] = useState([])
+        const [alreadyad, setAlreadyad] = useState(false);
         
 
 
@@ -14,7 +15,7 @@ export  const ContextProvider =({children}) => {
 
 
         return (
-                <Context.Provider value={{predata , setPreData ,cartitem , setCartItem,totalp , setTotalp, updateData, setUpdateData}}>
+                <Context.Provider value={{predata , setPreData ,cartitem , setCartItem,totalp , setTotalp, updateData, setUpdateData,alreadyad, setAlreadyad}}>
                     {children}
                 </Context.Provider>
         )
